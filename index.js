@@ -1,25 +1,25 @@
-    var cart = [];
-    
-    function getCart() {
-     return cart;
-    }
-    
-    function setCart(c) {
-      cart = c;
-      return cart;
-    }
-    
-    function addToCart(item) {
-      var item = newCartItem(item)
-      getCart().push(item)
-      return `${item.itemName} has been added to your cart.`
-    }
-    function newCartItem(itemName) {
-      return {
-        itemName: itemName,
-        itemPrice: Math.floor(Math.random() * 100)
-      }
-    }
+var cart = [];
+
+function getCart() {
+ return cart;
+}
+
+function setCart(c) {
+  cart = c;
+  return cart;
+}
+
+function addToCart(item) {
+  var item = newCartItem(item)
+  getCart().push(item)
+  return `${item.itemName} has been added to your cart.`
+}
+function newCartItem(itemName) {
+  return {
+    itemName: itemName,
+    itemPrice: Math.floor(Math.random() * 100)
+  }
+}
 
 function viewCart() {
   return getCart().length === 0 ? "Your shopping cart is empty." : generateCartDescription()
