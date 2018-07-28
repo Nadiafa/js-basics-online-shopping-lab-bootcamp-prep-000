@@ -1,53 +1,51 @@
-
-function addToCart(item) {
- // write your code 
- var item = cartItems(item);
- getCart().push(item);
- return `${item.itemName} has been added to your cart.`;
-}
-//function for object / addToCart
-function cartItems(itemName) {
-    return {
-      itemName: itemName,
-      itemPrice: Math.floor(Math.random() * 100)
-    };
-}
-
-
-
-function addToCart(item) {
-  var item = newCartItem(item)
-  getCart().push(item)
-  return `${item.itemName} has been added to your cart.`
-}
-function newCartItem(itemName) {
-  return {
-    itemName:itemName,
-    itemPrice:getRandomInt(1, 100)
-  }
-}
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+    var cart = [];
+    
+    function getCart() {
+     return cart;
+    }
+    
+    function setCart(c) {
+      cart = c;
+      return cart;
+    }
+    
+    function addToCart(item) {
+      var item = newCartItem(item)
+      getCart().push(item)
+      return `${item.itemName} has been added to your cart.`
+    }
+    function newCartItem(itemName) {
+      return {
+        itemName: itemName,
+        itemPrice: Math.floor(Math.random() * 100)
+      }
+    }
 
 function viewCart() {
   return getCart().length === 0 ? "Your shopping cart is empty." : generateCartDescription()
-}
-function generateCartDescription() {
-  var cartDescription = 'In your cart, you have '
-  if ( getCart().length >= 1 ) {
-    cartDescription += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}`
-  }
-  if ( getCart().length >= 2 ) {
-    var middleCartItemsDescription = ''
+  var emptyWording = "Your shopping cart is empty."
+  var oneItemCart = "In your cart, you have "
+  var moreItemsCart = " "
+  if (getCart().length === 0) {
+    return emptyWording;
+  } else if (getCart().length >= 1) {
+    oneItemCart = oneItemCart + `${getCart()[0].itemName} at $${getCart()[0].itemPrice}`
+    return oneItemCart;
+  } else if (getCart().length >= 2) {
     for (var i=1; i<getCart().length -1; i++) {
-      middleCartItemsDescription += `, ${getCart()[i].itemName} at $${getCart()[i].itemPrice}`
+      moreItemsCart = moreItemsCart + `, ${getCart()[i].itemName} at $${getCart()[i].itemPrice}`
     }
-    cartDescription += `${middleCartItemsDescription}, and ${getCart()[getCart().length-1].itemName} at $${getCart()[getCart().length-1].itemPrice}`
+    oneItemCart = oneItemCart +`${middleCartItemsDescription}, and ${getCart()[getCart().length-1].itemName} at $${getCart()[getCart().length-1].itemPrice}`
   }
-
-  return `${cartDescription}.`
+  return `${oneItemCart}.`
 }
+
+
+
+
+
+
+
 
 function total() {
   var sum = sumUpPrices()
