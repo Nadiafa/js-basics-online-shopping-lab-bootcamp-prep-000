@@ -28,7 +28,7 @@
       if (getCart().length === 0) {
         return emptyWording;
       } else if (getCart().length >= 1) {
-        oneItemCart = oneItemCart + `${getCart()[0].itemName} at $${getCart()[0].itemPrice}`
+        oneItemCart += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}`
         return oneItemCart;
       } else if (getCart().length >= 2) {
         for (var i=1; i<getCart().length -1; i++) {
