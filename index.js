@@ -21,24 +21,24 @@
       }
     }
 
-    function viewCart() {
-      var emptyWording = "Your shopping cart is empty."
-      var oneItemCart = "In your cart, you have "
-      var moreItemsCart = " "
-      if (getCart().length === 0) {
-        return emptyWording;
-      } else if (getCart().length >= 1) {
-        oneItemCart += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}`
-        return oneItemCart;
-      } else if (getCart().length >= 2) {
-        for (var i=1; i<getCart().length -1; i++) {
-          moreItemsCart += `, ${getCart()[i].itemName} at $${getCart()[i].itemPrice}`
-        }
-        oneItemCart += `${middleCartItemsDescription}, and ${getCart()[getCart().length-1].itemName} at $${getCart()[getCart().length-1].itemPrice}`
-        return `${oneItemCart}.`
-      }
-      
+function viewCart() {
+  return getCart().length === 0 ? "Your shopping cart is empty." : generateCartDescription()
+}
+function generateCartDescription() {
+  var cartDescription = 'In your cart, you have '
+  if ( getCart().length >= 1 ) {
+    cartDescription += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}`
+  }
+  if ( getCart().length >= 2 ) {
+    var middleCartItemsDescription = ''
+    for (var i=1; i<getCart().length -1; i++) {
+      middleCartItemsDescription += `, ${getCart()[i].itemName} at $${getCart()[i].itemPrice}`
     }
+    cartDescription += `${middleCartItemsDescription}, and ${getCart()[getCart().length-1].itemName} at $${getCart()[getCart().length-1].itemPrice}`
+  }
+
+  return `${cartDescription}.`
+}
 
 
 
