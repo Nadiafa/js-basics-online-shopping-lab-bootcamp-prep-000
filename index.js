@@ -35,8 +35,9 @@
           moreItemsCart = moreItemsCart + `, ${getCart()[i].itemName} at $${getCart()[i].itemPrice}`
         }
         oneItemCart = oneItemCart +`${middleCartItemsDescription}, and ${getCart()[getCart().length-1].itemName} at $${getCart()[getCart().length-1].itemPrice}`
+        return `${oneItemCart}.`
       }
-      return `${oneItemCart}.`
+      
     }
 
 
