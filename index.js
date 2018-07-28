@@ -22,7 +22,6 @@
     }
 
     function viewCart() {
-      return getCart().length === 0 ? "Your shopping cart is empty." : generateCartDescription()
       var emptyWording = "Your shopping cart is empty."
       var oneItemCart = "In your cart, you have "
       var moreItemsCart = " "
