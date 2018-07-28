@@ -32,9 +32,9 @@
         return oneItemCart;
       } else if (getCart().length >= 2) {
         for (var i=1; i<getCart().length -1; i++) {
-          moreItemsCart = moreItemsCart + `, ${getCart()[i].itemName} at $${getCart()[i].itemPrice}`
+          moreItemsCart += `, ${getCart()[i].itemName} at $${getCart()[i].itemPrice}`
         }
-        oneItemCart = oneItemCart +`${middleCartItemsDescription}, and ${getCart()[getCart().length-1].itemName} at $${getCart()[getCart().length-1].itemPrice}`
+        oneItemCart += `${middleCartItemsDescription}, and ${getCart()[getCart().length-1].itemName} at $${getCart()[getCart().length-1].itemPrice}`
         return `${oneItemCart}.`
       }
       
